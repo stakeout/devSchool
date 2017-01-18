@@ -30,6 +30,10 @@ print_r($bd);
 echo '<hr>';
 //echo count($bd);
 $total = array();
+$total['цена'] = 0;
+$total['количество заказано'] = 0;
+$total['осталось на складе'] = 0;
+$total['цена с наличием на складе'] = 0;
 function parseBasket($name, $param){
     global $total;
     $priceInStock = $param['цена'] * $param['осталось на складе'];
