@@ -47,13 +47,14 @@ $bd=  parse_ini_string($ini_string, true);
 $totalGoods = '';
 $totalSum = '';
 $message = array();
-
+$total = array();
+$totalDiscount = '';
 foreach ($bd as $key => $val){
     $bd[$key]['стоимость'] = $bd[$key]['цена']*$bd[$key]['количество заказано'];
     $totalGoods += $bd[$key]['количество заказано'];
     $totalSum += $bd[$key]['стоимость'];
     $bd[$key]['скидка по купону'] = diskont_calc($val['diskont'], true);
-    
+    $totalDiscount += ($bd[$key]['стоимость'] - ($bd[$key]['стоимость'] * diskont_calc($val['diskont'], false)));
     $bd[$key]['всего едениц'] = $bd[$key]['осталось на складе'] + $bd[$key]['количество заказано'];
     
     if( ($key == 'игрушка детская велосипед') && $val['количество заказано'] >=3){
@@ -78,7 +79,6 @@ foreach ($bd as $key => $val){
             <td>Скидка по купону</td>
             <td>Стоимость со скидкой</td>
             <td>Остаток на складе</td>
-            <td>Наличие</td>
         </tr>
         </thead>
         <tbody>
@@ -92,9 +92,9 @@ foreach ($bd as $key => $val){
                 . '<td>' .$val['скидка по купону'] . '</td>'
                 . '<td>' .$val['стоимость со скидкой'] . '</td>'
                 . '<td>' .$val['осталось на складе'] . '</td>';
-                
             echo '</tr>';
-            }
+        }
+            
         ?>
         </tbody>
     </table>
@@ -107,7 +107,7 @@ foreach ($bd as $key => $val){
                     echo "<li> {$key} </li>";
                 }?>
             </ul>
-            <p>Всего заказано <?php echo $totalGoods; ?> товаров, на сумму <?php echo $totalSum; ?></p>
+            <p>Всего заказано <?php echo $totalGoods; ?> товаров на сумму <?php echo $totalSum; ?>, сумма с учетом скидки составила <?php echo $totalDiscount;?></p>
         </div>
         <div class="right-col" style="float:right; width:70%;">
             <h3>Скидка</h3>
