@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.form-wrapper{
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+}
+.form-header{
+    display: flex;
+    justify-content: flex-end;
+}
+.form-header label{
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}
+.form-header input{
+    margin-right: 10px;
+}
+label{
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 16px;
+    font-family: Verdana;
+    cursor: pointer;
+}
+input:not([type=radio]),
+select,
+textarea{
+    display: inline-block;
+    vertical-align: top;
+    width:300px;
+    margin-left:auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+}
+textarea{
+    min-height:120px;
+    resize: none;
+}
+input[type=checkbox]{
+    width: 20px;
+}
+input.price{
+    width: 100px;
+    margin-left: 185px;
+    margin-right: 15px;
+}
+.submit{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    height:40px;
+    font-size: 18px;
+    line-height: 40px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 100px;
+}
+.newsletter{
+    font-size:12px;
+}
